@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+# Import the components module for embedding HTML
+import streamlit.components.v1 as components
 
 # --- Dashboard Title ---
 st.title("SAKSHAM Baseline Survey Dashboard (Skeletal Structure)")
@@ -29,8 +31,20 @@ block_data = pd.DataFrame({'Block': blocks, 'Number of Farmers': np.random.randi
 fig_block = px.bar(block_data, x='Block', y='Number of Farmers', title='Distribution of Farmers by Block')
 st.plotly_chart(fig_block)
 
+# --- New Section: Geographic Data (for the map) ---
+st.header("Section 5: Geographic Data") # Renaming to Section 5 as per order or adjust as needed
+st.subheader("Regional Overview Map")
+
+# Datawrapper embed code as a string
+datawrapper_embed_code = """
+<div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>
+"""
+
+# Embed the HTML using st.components.v1.html
+components.html(datawrapper_embed_code, height=600) # Set a height that makes the map visible
+
 # --- Section 2: Economic ---
-st.header("Section 2: Economic")
+st.header("Section 2: Economic") # Keep the original order of your sections
 
 # Parameter: Yield (Bar Graph - create class intervals)
 st.subheader("Yield Distribution (Class Intervals)")
