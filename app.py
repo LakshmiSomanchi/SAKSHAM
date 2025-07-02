@@ -25,55 +25,58 @@ tab_geographic, tab_demographic, tab_economic, tab_social, tab_environmental = s
 # --- Content for 'Geographic Data' Tab ---
 with tab_geographic:
     st.header("Geographic Overview")
-    st.write("Explore the regional distribution and characteristics through these interactive maps.")
+    st.write("Select a map below to view its details.")
 
-    # Datawrapper Embed 1 (Original) - min-height:598px
-    st.subheader("Map 1: Overview Distribution (Oq2xV)")
-    datawrapper_embed_code_1 = """
-    <div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>
-    """
-    # Try increasing height significantly
-    components.html(datawrapper_embed_code_1, height=650, scrolling=False)
+    # Define the options for the radio buttons
+    map_options = {
+        "Map 1: Overview Distribution (Oq2xV)": {
+            "code": """
+            <div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>
+            """,
+            "height": 650
+        },
+        "Map 2: Additional Regional View (dNfZU)": {
+            "code": """
+            <div style="min-height:384px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>
+            """,
+            "height": 450
+        },
+        "Map 3: Further Geographic Insight (7IEJR)": {
+            "code": """
+            <div style="min-height:677px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
+            """,
+            "height": 730
+        },
+        "Map 4: Quick Geographic Detail (fNesy)": {
+            "code": """
+            <div style="min-height:114px" id="datawrapper-vis-fNesy"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/fNesy/embed.js" charset="utf-8" data-target="#datawrapper-vis-fNesy"></script><noscript><img src="https://datawrapper.dwcdn.net/fNesy/full.png" alt="" /></noscript></div>
+            """,
+            "height": 180
+        },
+        "Map 5: Detailed Geographic View (3Fewz)": {
+            "code": """
+            <div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>
+            """,
+            "height": 620
+        },
+    }
 
-    st.markdown("---") # Visual separator
+    # Create a radio button group for map selection
+    # Using horizontal=True can make it more compact if many options
+    selected_map_name = st.radio(
+        "Choose a map to display:",
+        list(map_options.keys()),
+        horizontal=True # Display radio buttons horizontally
+    )
 
-    # Datawrapper Embed 2 (Original) - min-height:384px
-    st.subheader("Map 2: Additional Regional View (dNfZU)")
-    datawrapper_embed_code_2 = """
-    <div style="min-height:384px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>
-    """
-    # Try increasing height significantly
-    components.html(datawrapper_embed_code_2, height=450, scrolling=False)
+    st.markdown("---") # Visual separator before the map
 
-    st.markdown("---") # Visual separator
-
-    # Datawrapper Embed 3 (Original) - min-height:677px
-    st.subheader("Map 3: Further Geographic Insight (7IEJR)")
-    datawrapper_embed_code_3 = """
-    <div style="min-height:677px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
-    """
-    # Try increasing height significantly
-    components.html(datawrapper_embed_code_3, height=730, scrolling=False)
-
-    st.markdown("---") # Visual separator
-
-    # New Datawrapper Embed 4 (fNesy) - min-height:114px
-    st.subheader("Map 4: Quick Geographic Detail (fNesy)")
-    datawrapper_embed_code_4 = """
-    <div style="min-height:114px" id="datawrapper-vis-fNesy"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/fNesy/embed.js" charset="utf-8" data-target="#datawrapper-vis-fNesy"></script><noscript><img src="https://datawrapper.dwcdn.net/fNesy/full.png" alt="" /></noscript></div>
-    """
-    # Try increasing height significantly
-    components.html(datawrapper_embed_code_4, height=180, scrolling=False)
-
-    st.markdown("---") # Visual separator
-
-    # New Datawrapper Embed 5 (3Fewz) - min-height:558px
-    st.subheader("Map 5: Detailed Geographic View (3Fewz)")
-    datawrapper_embed_code_5 = """
-    <div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>
-    """
-    # Try increasing height significantly
-    components.html(datawrapper_embed_code_5, height=620, scrolling=False)
+    # Display the selected map
+    if selected_map_name: # Ensure a map is selected (it will be by default)
+        map_info = map_options[selected_map_name]
+        components.html(map_info["code"], height=map_info["height"], scrolling=False)
+    else:
+        st.info("Please select a map from the options above.")
 
 
 # --- Content for 'Demographic Data' Tab ---
