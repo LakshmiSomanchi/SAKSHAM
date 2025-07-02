@@ -12,12 +12,13 @@ INITIAL_SIDEBAR_STATE = "expanded"
 
 # --- Datawrapper Embed Definitions ---
 # Centralize all Datawrapper embed codes and their properties
-# We'll extract the min-height from the embed code and add a buffer for uniformity and full display.
+# ONLY GEOGRAPHIC MAPS ARE KEPT HERE.
+# You will add new embed codes for other sections when ready.
 DATAWRAPPER_EMBEDS = {
-    # Geographic Data Maps
+    # Geographic Data Maps (Retained)
     "geo_map_1_overview_distribution": {
         "code": """<div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>""",
-        "min_height_from_embed": 598 # Extracted from the div's style
+        "min_height_from_embed": 598
     },
     "geo_map_2_additional_regional_view": {
         "code": """<div style="min-height:384px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>""",
@@ -35,20 +36,12 @@ DATAWRAPPER_EMBEDS = {
         "code": """<div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>""",
         "min_height_from_embed": 558
     },
-    # Demographic Data Charts
-    "demographic_household_composition": {
-        "code": """<div style="min-height:451px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>""",
-        "min_height_from_embed": 451
-    },
-    # Environmental Data Charts
-    "env_source_of_irrigation": {
-        "code": """<div style="min-height:258px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>""",
-        "min_height_from_embed": 258
-    },
-    "env_avg_organic_cotton_production": {
-        "code": """<div style="min-height:468px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>""",
-        "min_height_from_embed": 468
-    },
+    # Other charts will be added here once you provide new embed codes.
+    # Example for when you add a new chart:
+    # "new_demographic_chart": {
+    #     "code": """<div style="min-height:XYZpx" id="datawrapper-vis-ABCDE"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/ABCDE/embed.js" charset="utf-8" data-target="#datawrapper-vis-ABCDE"></script><noscript><img src="https://datawrapper.dwcdn.net/ABCDE/full.png" alt="" /></noscript></div>""",
+    #     "min_height_from_embed": XYZ
+    # },
 }
 
 # --- Page Setup ---
@@ -71,7 +64,6 @@ def display_datawrapper_embed(key, buffer=30):
     """
     if key in DATAWRAPPER_EMBEDS:
         embed_info = DATAWRAPPER_EMBEDS[key]
-        # Calculate the display height: min_height from embed + buffer
         display_height = embed_info["min_height_from_embed"] + buffer
         components.html(embed_info["code"], height=display_height, scrolling=False)
     else:
@@ -111,36 +103,37 @@ def render_demographic_data_tab():
     st.header("Demographic Data")
     st.write("Explore insights into household composition and other demographic trends.")
 
+    # This dictionary will be populated with new charts when you provide them.
     demographic_chart_options_display = {
-        "Household Composition": "demographic_household_composition",
-        # Add other demographic charts here if needed, mapping display name to DATAWRAPPER_EMBEDS key
+        # Example when you add a new demographic chart:
+        # "New Demographic Chart Title": "new_demographic_chart_key_from_DATAWRAPPER_EMBEDS",
     }
 
-    selected_demographic_chart = st.radio(
-        "Choose a demographic chart to display:",
-        list(demographic_chart_options_display.keys()),
-        horizontal=True
-    )
-
-    st.markdown("---")
-
-    if selected_demographic_chart:
+    if demographic_chart_options_display:
+        selected_demographic_chart = st.radio(
+            "Choose a demographic chart to display:",
+            list(demographic_chart_options_display.keys()),
+            horizontal=True
+        )
+        st.markdown("---")
         selected_key = demographic_chart_options_display[selected_demographic_chart]
         display_datawrapper_embed(selected_key)
     else:
-        st.info("Please select a demographic chart from the options above.")
+        st.info("Content for this section will be added soon. Please provide new embed codes for Demographic charts.")
+
 
 def render_economic_data_tab():
     """Renders the content for the Economic Data tab."""
     st.header("Economic Data")
     st.write("View economic indicators such as organic cotton certification status.")
 
+    # This dictionary will be populated with new charts when you provide them.
     economic_chart_options_display = {
-        # This section is currently empty as per your previous request
-        # Example if you add one: "Certification Status": "economic_certification_status",
+        # Example when you add a new economic chart:
+        # "New Economic Chart Title": "new_economic_chart_key_from_DATAWRAPPER_EMBEDS",
     }
 
-    if economic_chart_options_display: # Only show radio if there are options
+    if economic_chart_options_display:
         selected_economic_chart = st.radio(
             "Choose an economic chart to display:",
             list(economic_chart_options_display.keys()),
@@ -150,37 +143,37 @@ def render_economic_data_tab():
         selected_key = economic_chart_options_display[selected_economic_chart]
         display_datawrapper_embed(selected_key)
     else:
-        st.info("Content for this section will be added soon. (Economic charts are currently empty)")
+        st.info("Content for this section will be added soon. Please provide new embed codes for Economic charts.")
+
 
 def render_social_data_tab():
     """Renders the content for the Social Data tab."""
     st.header("Social Data")
     st.write("This section will cover parameters like labour register maintenance and participation in government schemes.")
-    st.info("Content for this section will be added soon.")
+    st.info("Content for this section will be added soon. Please provide new embed codes for Social charts.")
 
 def render_environmental_data_tab():
     """Renders the content for the Environmental Data tab."""
     st.header("Environmental Data")
     st.write("This section presents data on crop residue management, irrigation sources, and organic cotton production.")
 
+    # This dictionary will be populated with new charts when you provide them.
     environmental_chart_options_display = {
-        "Source of Irrigation": "env_source_of_irrigation",
-        "Avg. production of organic cotton/acre (Kg)": "env_avg_organic_cotton_production",
+        # Example when you add a new environmental chart:
+        # "New Environmental Chart Title": "new_environmental_chart_key_from_DATAWRAPPER_EMBEDS",
     }
 
-    selected_environmental_chart = st.radio(
-        "Choose an environmental chart to display:",
-        list(environmental_chart_options_display.keys()),
-        horizontal=True
-    )
-
-    st.markdown("---")
-
-    if selected_environmental_chart:
+    if environmental_chart_options_display:
+        selected_environmental_chart = st.radio(
+            "Choose an environmental chart to display:",
+            list(environmental_chart_options_display.keys()),
+            horizontal=True
+        )
+        st.markdown("---")
         selected_key = environmental_chart_options_display[selected_environmental_chart]
         display_datawrapper_embed(selected_key)
     else:
-        st.info("Please select an environmental chart from the options above.")
+        st.info("Content for this section will be added soon. Please provide new embed codes for Environmental charts.")
 
 # --- Main Application Logic ---
 def main():
