@@ -17,13 +17,13 @@ st.set_page_config(
 # --- Read and Embed HTML ---
 # Get the directory of the current script
 current_dir = os.path.dirname(__file__)
-html_file_path = os.path.join(current_dir, "index.html")
+html_file_path = os.path.join(current_dir, "SAKSHAM.html")
 
 try:
     with open(html_file_path, "r", encoding="utf-8") as f:
         html_content = f.read()
 except FileNotFoundError:
-    st.error(f"Error: HTML file not found at {html_file_path}. Please ensure 'index.html' is in the same directory as 'streamlit_app.py'.")
+    st.error(f"Error: HTML file not found at {html_file_path}. Please ensure 'SAKSHAM.html' is in the same directory as 'streamlit_app.py'.")
     html_content = "<h1>Dashboard content could not be loaded.</h1>"
 
 # The height parameter is crucial. You'll need to adjust this value
