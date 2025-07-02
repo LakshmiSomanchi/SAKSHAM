@@ -32,7 +32,8 @@ with tab_geographic:
     datawrapper_embed_code_1 = """
     <div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>
     """
-    components.html(datawrapper_embed_code_1, height=620, scrolling=False) # Increased height, set scrolling to False
+    # Try increasing height significantly
+    components.html(datawrapper_embed_code_1, height=650, scrolling=False)
 
     st.markdown("---") # Visual separator
 
@@ -41,7 +42,8 @@ with tab_geographic:
     datawrapper_embed_code_2 = """
     <div style="min-height:384px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>
     """
-    components.html(datawrapper_embed_code_2, height=410, scrolling=False) # Increased height, set scrolling to False
+    # Try increasing height significantly
+    components.html(datawrapper_embed_code_2, height=450, scrolling=False)
 
     st.markdown("---") # Visual separator
 
@@ -50,7 +52,8 @@ with tab_geographic:
     datawrapper_embed_code_3 = """
     <div style="min-height:677px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
     """
-    components.html(datawrapper_embed_code_3, height=700, scrolling=False) # Increased height, set scrolling to False
+    # Try increasing height significantly
+    components.html(datawrapper_embed_code_3, height=730, scrolling=False)
 
     st.markdown("---") # Visual separator
 
@@ -59,7 +62,8 @@ with tab_geographic:
     datawrapper_embed_code_4 = """
     <div style="min-height:114px" id="datawrapper-vis-fNesy"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/fNesy/embed.js" charset="utf-8" data-target="#datawrapper-vis-fNesy"></script><noscript><img src="https://datawrapper.dwcdn.net/fNesy/full.png" alt="" /></noscript></div>
     """
-    components.html(datawrapper_embed_code_4, height=140, scrolling=False) # Increased height, set scrolling to False
+    # Try increasing height significantly
+    components.html(datawrapper_embed_code_4, height=180, scrolling=False)
 
     st.markdown("---") # Visual separator
 
@@ -68,7 +72,8 @@ with tab_geographic:
     datawrapper_embed_code_5 = """
     <div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>
     """
-    components.html(datawrapper_embed_code_5, height=590, scrolling=False) # Increased height, set scrolling to False
+    # Try increasing height significantly
+    components.html(datawrapper_embed_code_5, height=620, scrolling=False)
 
 
 # --- Content for 'Demographic Data' Tab ---
