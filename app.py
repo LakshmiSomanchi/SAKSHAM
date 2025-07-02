@@ -16,11 +16,11 @@ def load_html_component(file_name, default_height=700):
         st.error(f"Error: `{file_name}` not found. Please ensure it's in the same directory.")
         st.info("The content for this section could not be loaded.")
 
-# --- Streamlit Page Configuration ---
+# --- Streamlit Page Configuration (rest of your config...) ---
 st.set_page_config(
     page_title="SAKSHAM Project Dashboard",
     layout="wide",
-    initial_sidebar_state="expanded", # Expanded sidebar for tab navigation if needed
+    initial_sidebar_state="expanded",
     menu_items={
         'Get Help': 'https://www.google.com/search?q=saksham+project+support',
         'Report a bug': "https://github.com/your-username/your-repo-name/issues",
@@ -28,7 +28,7 @@ st.set_page_config(
     }
 )
 
-# --- Main Dashboard Header ---
+# --- Main Dashboard Header (rest of your header...) ---
 st.title("🌱 SAKSHAM Project: Comprehensive Dashboard")
 st.markdown("""
 Welcome to the interactive dashboard for the SAKSHAM Cotton Project.
@@ -38,7 +38,6 @@ st.markdown("---")
 
 
 # --- Streamlit Tabs for Navigation ---
-# Define the tabs
 tab_overview, tab_demographic, tab_economic, tab_social, tab_environmental = st.tabs([
     "🚀 Overview & KPIs",
     "🧑‍🤝‍👩 Demographic Data",
@@ -47,34 +46,33 @@ tab_overview, tab_demographic, tab_economic, tab_social, tab_environmental = st.
     "🌳 Environmental Data"
 ])
 
-# Content for each tab
+# Content for each tab - MODIFIED FILE NAMES HERE
 with tab_overview:
     st.header("Overview & Key Performance Indicators")
     st.markdown("This section provides a quick snapshot of the project's reach and key metrics.")
-    load_html_component("index_overview.html", default_height=250) # Adjust height for KPI section
+    load_html_component("SAKSHAM.html", default_height=250) # Use your SAKSHAM.html for overview
 
 with tab_demographic:
     st.header("Demographic Data")
     st.markdown("Explore the geographical distribution and population composition of the project areas.")
-    # Adjust height based on the total height of charts in this section
-    load_html_component("section_demographic.html", default_height=1400) # Contains map, multiple pie charts
+    load_html_component("page2.html", default_height=1400) # Assuming page2.html is demographic
 
 with tab_economic:
     st.header("Economic Insights")
     st.markdown("Understand the economic aspects, including yield and farmer certification.")
-    load_html_component("section_economic.html", default_height=1000) # Contains avg production, 2 placeholders
+    load_html_component("page3.html", default_height=1000) # Assuming page3.html is economic
 
 with tab_social:
     st.header("Social Indicators")
     st.markdown("View data related to social welfare, labor, and government scheme adoption.")
-    load_html_component("section_social.html", default_height=700) # Contains 2 placeholders
+    load_html_component("page4.html", default_height=700) # Assuming page4.html is social
 
 with tab_environmental:
     st.header("Environmental Data")
     st.markdown("Discover insights into environmental practices and resource management.")
-    load_html_component("section_environmental.html", default_height=1000) # Contains irrigation source, 2 placeholders
+    load_html_component("page5.html", default_height=1000) # Assuming page5.html is environmental
 
-# --- Streamlit Sidebar (Optional) ---
+# --- Streamlit Sidebar (rest of your sidebar...) ---
 with st.sidebar:
     st.header("About SAKSHAM Dashboard")
     st.markdown("""
@@ -83,17 +81,17 @@ with st.sidebar:
     """)
     st.markdown("---")
     st.subheader("Project Links")
-    st.write("[Learn more about SAKSHAM Project](https://example.com/saksham-project)") # Replace with actual link
-    st.write("[Project Documentation](https://example.com/docs)") # Replace with actual link
+    st.write("[Learn more about SAKSHAM Project](https://example.com/saksham-project)")
+    st.write("[Project Documentation](https://example.com/docs)")
     st.markdown("---")
     st.subheader("Contact & Support")
-    st.write("For support, please email: `support@sakshamproject.com`") # Replace with actual email
+    st.write("For support, please email: `support@sakshamproject.com`")
     st.markdown("---")
     st.caption(f"Dashboard App Version 1.0")
     st.caption(f"Last App Deployment/Refresh: {datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
 
 
-# --- Streamlit Footer ---
+# --- Streamlit Footer (rest of your footer...) ---
 st.markdown("---")
 st.markdown("© 2025 SAKSHAM Project. All rights reserved.")
 st.markdown("Dashboard developed using Streamlit and Datawrapper embeds.")
