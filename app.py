@@ -3,11 +3,11 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 # --- Dashboard Title ---
-st.title("SAKSHAM Baseline Survey Dashboard (Skeletal Structure)")
+st.title("SAKSHAM Baseline Dashboard")
 st.write("This dashboard currently features a geographical overview map.")
 
 # --- Section 1: Geographic Data (for the map) ---
-st.header("Section 1: Geographic Data")
+st.header("Geographic Data")
 st.subheader("Regional Overview Map")
 
 # Datawrapper embed code as a string
