@@ -32,25 +32,25 @@ with tab_geographic:
 
     # Define the options for the radio buttons in Geographic Data
     geo_map_options = {
-        "Map 1: Overview Distribution (Oq2xV)": {
+        "Map 1: Overview Distribution": {
             "code": """
             <div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>
             """,
             "height": 620
         },
-        "Map 2: Additional Regional View (dNfZU)": {
+        "Map 2: Additional Regional View": {
             "code": """
             <div style="min-height:384px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>
             """,
             "height": 410
         },
-        "Map 3: Further Geographic Insight (7IEJR - Original Geo Map)": { # Renamed for clarity
+        "Map 3: Further Geographic Insight": { # Renamed for clarity
             "code": """
             <div style="min-height:677px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
             """,
             "height": 700
         },
-        "Map 4: Quick Geographic Detail (fNesy)": {
+        "Map 4: Quick Geographic Detail": {
             "code": """
             <div style="min-height:114px" id="datawrapper-vis-fNesy"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/fNesy/embed.js" charset="utf-8" data-target="#datawrapper-vis-fNesy"></script><noscript><img src="https://datawrapper.dwcdn.net/fNesy/full.png" alt="" /></noscript></div>
             """,
@@ -88,11 +88,11 @@ with tab_demographic:
     demographic_chart_options = {
         "Household Composition": {
             "code": """
-            <div style="min-height:565px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
-            """,
-            "height": 590
+            <div style="min-height:451px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
+            """, # Updated code
+            "height": 480 # Adjusted height (451 + buffer)
         },
-        # You can add more demographic charts here later
+        # Add other demographic charts here if needed
     }
 
     selected_demographic_chart = st.radio(
@@ -113,32 +113,25 @@ with tab_demographic:
 # --- Content for 'Economic Data' Tab ---
 with tab_economic:
     st.header("Economic Data")
-    st.write("View economic indicators such as organic cotton production and certification status.")
+    st.write("View economic indicators such as organic cotton certification status.")
 
     # Define options for economic charts
     economic_chart_options = {
-        "Avg. Production of Organic Cotton/Acre (Kg)": { # This chart was previously here, now also under Environmental
-            "code": """
-            <div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>
-            """,
-            "height": 580
-        },
-        # You can add more economic charts here later
+        # This section is currently empty as per your previous request to move "Avg. Production of Organic Cotton/Acre (Kg)"
+        # Add other economic charts here if needed, e.g., "Certification Status (Dummy)" if reactivated
     }
 
-    selected_economic_chart = st.radio(
-        "Choose an economic chart to display:",
-        list(economic_chart_options.keys()),
-        horizontal=True
-    )
-
-    st.markdown("---")
-
-    if selected_economic_chart:
+    if economic_chart_options: # Only show radio if there are options
+        selected_economic_chart = st.radio(
+            "Choose an economic chart to display:",
+            list(economic_chart_options.keys()),
+            horizontal=True
+        )
+        st.markdown("---")
         chart_info = economic_chart_options[selected_economic_chart]
         components.html(chart_info["code"], height=chart_info["height"], scrolling=False)
     else:
-        st.info("Please select an economic chart from the options above.")
+        st.info("Content for this section will be added soon. (Economic charts are currently empty)")
 
 
 # --- Content for 'Social Data' Tab ---
@@ -155,15 +148,15 @@ with tab_environmental:
     environmental_chart_options = {
         "Source of Irrigation": {
             "code": """
-            <div style="min-height:400px" id="datawrapper-vis-YOUR_IRRIGATION_CHART_ID_HERE"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/YOUR_IRRIGATION_CHART_ID_HERE/embed.js" charset="utf-8" data-target="#datawrapper-vis-YOUR_IRRIGATION_CHART_ID_HERE"></script><noscript><img src="https://datawrapper.dwcdn.net/YOUR_IRRIGATION_CHART_ID_HERE/full.png" alt="" /></noscript></div>
-            """, # REPLACE 'YOUR_IRRIGATION_CHART_ID_HERE'
-            "height": 430 # Adjust as needed after getting the actual code
+            <div style="min-height:258px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>
+            """, # Updated code
+            "height": 290 # Adjusted height (258 + buffer)
         },
         "Avg. production of organic cotton/acre (Kg)": {
             "code": """
-            <div style="min-height:558px" id="datawrapper-vis-YOUR_COTTON_PRODUCTION_CHART_ID_HERE"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/YOUR_COTTON_PRODUCTION_CHART_ID_HERE/embed.js" charset="utf-8" data-target="#datawrapper-vis-YOUR_COTTON_PRODUCTION_CHART_ID_HERE"></script><noscript><img src="https://datawrapper.dwcdn.net/YOUR_COTTON_PRODUCTION_CHART_ID_HERE/full.png" alt="" /></noscript></div>
-            """, # REPLACE 'YOUR_COTTON_PRODUCTION_CHART_ID_HERE'
-            "height": 580 # Adjust as needed after getting the actual code
+            <div style="min-height:468px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>
+            """,
+            "height": 490
         },
     }
 
