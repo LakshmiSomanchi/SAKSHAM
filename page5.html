@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Data</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #f0f8ff;
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0; padding: 0;
+            background-color: transparent;
+        }
+        .chart-section {
+            padding: 20px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+        .chart-section-title {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: 600;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .chart-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+        }
+        .chart-item {
+            flex: 1 1 calc(50% - 25px);
+            min-width: 320px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .chart-item h2 {
+            text-align: center;
+            color: var(--text-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            font-weight: 500;
+        }
+        .datawrapper-chart { width: 100%; }
+        .placeholder-info {
+            background-color: #e6f7ff;
+            border-left: 5px solid #2196F3;
+            padding: 10px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+            color: #2196F3;
+            font-style: italic;
+        }
+        @media (max-width: 768px) {
+            .chart-item { flex: 1 1 100%; padding: 15px; }
+            .chart-section-title { font-size: 1.8em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-section">
+        <h2 class="chart-section-title">Environmental Data</h2>
+        <div class="chart-grid">
+            <div class="chart-item">
+                <h2>Source of Irrigation</h2>
+                <div class="datawrapper-chart">
+                    <div style="min-height:258px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>
+                </div>
+            </div>
+
+            <div class="chart-item">
+                <h2>Crop Residue (Placeholder)</h2>
+                <div class="placeholder-info">
+                    <p>Please provide Datawrapper embed code for 'Crop Residue'. This is a placeholder.</p>
+                </div>
+                </div>
+
+            <div class="chart-item">
+                <h2>No. of Irrigations (Placeholder)</h2>
+                <div class="placeholder-info">
+                    <p>Please provide Datawrapper embed code for 'No. of Irrigations'. This is a placeholder.</p>
+                </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>
