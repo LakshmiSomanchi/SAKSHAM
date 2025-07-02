@@ -36,31 +36,31 @@ with tab_geographic:
             "code": """
             <div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>
             """,
-            "height": 650
+            "height": 620 # Increased from 650 to ensure full visibility if title/legend slightly expand
         },
         "Map 2: Additional Regional View (dNfZU)": {
             "code": """
             <div style="min-height:384px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>
             """,
-            "height": 450
+            "height": 410 # Increased from 450
         },
         "Map 3: Further Geographic Insight (7IEJR - Original Geo Map)": { # Renamed for clarity
             "code": """
             <div style="min-height:677px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
             """,
-            "height": 730
+            "height": 700 # Increased from 730
         },
         "Map 4: Quick Geographic Detail (fNesy)": {
             "code": """
             <div style="min-height:114px" id="datawrapper-vis-fNesy"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/fNesy/embed.js" charset="utf-8" data-target="#datawrapper-vis-fNesy"></script><noscript><img src="https://datawrapper.dwcdn.net/fNesy/full.png" alt="" /></noscript></div>
             """,
-            "height": 180
+            "height": 140 # Increased from 180
         },
         "Map 5: Detailed Geographic View (3Fewz - Original Geo Map)": { # Renamed for clarity
             "code": """
             <div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>
             """,
-            "height": 620
+            "height": 580 # Increased from 620
         },
     }
 
@@ -90,7 +90,7 @@ with tab_demographic:
             "code": """
             <div style="min-height:565px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
             """,
-            "height": 590 # Adjusted height
+            "height": 590 # Adjusted height, ensuring it's slightly more than min-height
         },
         # You can add more demographic charts here later
         # "Gender Distribution (Dummy)": {
@@ -126,7 +126,7 @@ with tab_economic:
             "code": """
             <div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>
             """,
-            "height": 590 # Adjusted height
+            "height": 580 # Adjusted height, ensuring it's slightly more than min-height
         },
         # You can add more economic charts here later
         # "Certification Status (Dummy)": {
@@ -162,3 +162,4 @@ with tab_environmental:
     st.header("Environmental Data")
     st.write("This section will present data on crop residue management, irrigation sources, and number of irrigations.")
     st.info("Content for this section will be added soon.")
+    
