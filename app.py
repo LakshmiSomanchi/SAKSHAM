@@ -1,8 +1,8 @@
 import streamlit as st
 import streamlit.components.v1 as components
-import pandas as pd # Re-import pandas for dummy data if you add native charts later
-import numpy as np # Re-import numpy for dummy data if you add native charts later
-import plotly.express as px # Re-import plotly for dummy data if you add native charts later
+import pandas as pd
+import numpy as np
+import plotly.express as px
 
 # --- Page Configuration (MUST be the first Streamlit command) ---
 st.set_page_config(
@@ -36,31 +36,31 @@ with tab_geographic:
             "code": """
             <div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>
             """,
-            "height": 620 # Increased from 650 to ensure full visibility if title/legend slightly expand
+            "height": 620
         },
         "Map 2: Additional Regional View (dNfZU)": {
             "code": """
             <div style="min-height:384px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>
             """,
-            "height": 410 # Increased from 450
+            "height": 410
         },
         "Map 3: Further Geographic Insight (7IEJR - Original Geo Map)": { # Renamed for clarity
             "code": """
             <div style="min-height:677px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
             """,
-            "height": 700 # Increased from 730
+            "height": 700
         },
         "Map 4: Quick Geographic Detail (fNesy)": {
             "code": """
             <div style="min-height:114px" id="datawrapper-vis-fNesy"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/fNesy/embed.js" charset="utf-8" data-target="#datawrapper-vis-fNesy"></script><noscript><img src="https://datawrapper.dwcdn.net/fNesy/full.png" alt="" /></noscript></div>
             """,
-            "height": 140 # Increased from 180
+            "height": 140
         },
         "Map 5: Detailed Geographic View (3Fewz - Original Geo Map)": { # Renamed for clarity
             "code": """
             <div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>
             """,
-            "height": 580 # Increased from 620
+            "height": 580
         },
     }
 
@@ -86,18 +86,13 @@ with tab_demographic:
 
     # Define options for demographic charts
     demographic_chart_options = {
-        "Household Composition": { # This is the new chart
+        "Household Composition": {
             "code": """
             <div style="min-height:565px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
             """,
-            "height": 590 # Adjusted height, ensuring it's slightly more than min-height
+            "height": 590
         },
         # You can add more demographic charts here later
-        # "Gender Distribution (Dummy)": {
-        #     "type": "plotly",
-        #     "data_func": lambda: pd.DataFrame({'Category': ['Male', 'Female'], 'Count': [np.random.randint(50, 150), np.random.randint(50, 150)]}),
-        #     "chart_func": lambda df: px.pie(df, values='Count', names='Category', title='Gender Distribution')
-        # },
     }
 
     selected_demographic_chart = st.radio(
@@ -122,18 +117,13 @@ with tab_economic:
 
     # Define options for economic charts
     economic_chart_options = {
-        "Avg. Production of Organic Cotton/Acre (Kg)": { # This is the new chart
+        "Avg. Production of Organic Cotton/Acre (Kg)": { # This chart was previously here, now also under Environmental
             "code": """
             <div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>
             """,
-            "height": 580 # Adjusted height, ensuring it's slightly more than min-height
+            "height": 580
         },
         # You can add more economic charts here later
-        # "Certification Status (Dummy)": {
-        #     "type": "plotly",
-        #     "data_func": lambda: pd.DataFrame({'Status': ['Certified', 'Not Certified'], 'Count': [np.random.randint(30, 80), np.random.randint(80, 150)]}),
-        #     "chart_func": lambda df: px.pie(df, values='Count', names='Status', title='Certification Status')
-        # },
     }
 
     selected_economic_chart = st.radio(
@@ -160,6 +150,33 @@ with tab_social:
 # --- Content for 'Environmental Data' Tab ---
 with tab_environmental:
     st.header("Environmental Data")
-    st.write("This section will present data on crop residue management, irrigation sources, and number of irrigations.")
-    st.info("Content for this section will be added soon.")
-    
+    st.write("This section presents data on crop residue management, irrigation sources, and organic cotton production.")
+
+    environmental_chart_options = {
+        "Source of Irrigation": {
+            "code": """
+            <div style="min-height:400px" id="datawrapper-vis-YOUR_IRRIGATION_CHART_ID_HERE"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/YOUR_IRRIGATION_CHART_ID_HERE/embed.js" charset="utf-8" data-target="#datawrapper-vis-YOUR_IRRIGATION_CHART_ID_HERE"></script><noscript><img src="https://datawrapper.dwcdn.net/YOUR_IRRIGATION_CHART_ID_HERE/full.png" alt="" /></noscript></div>
+            """, # REPLACE 'YOUR_IRRIGATION_CHART_ID_HERE'
+            "height": 430 # Adjust as needed after getting the actual code
+        },
+        "Avg. production of organic cotton/acre (Kg)": {
+            "code": """
+            <div style="min-height:558px" id="datawrapper-vis-YOUR_COTTON_PRODUCTION_CHART_ID_HERE"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/YOUR_COTTON_PRODUCTION_CHART_ID_HERE/embed.js" charset="utf-8" data-target="#datawrapper-vis-YOUR_COTTON_PRODUCTION_CHART_ID_HERE"></script><noscript><img src="https://datawrapper.dwcdn.net/YOUR_COTTON_PRODUCTION_CHART_ID_HERE/full.png" alt="" /></noscript></div>
+            """, # REPLACE 'YOUR_COTTON_PRODUCTION_CHART_ID_HERE'
+            "height": 580 # Adjust as needed after getting the actual code
+        },
+    }
+
+    selected_environmental_chart = st.radio(
+        "Choose an environmental chart to display:",
+        list(environmental_chart_options.keys()),
+        horizontal=True
+    )
+
+    st.markdown("---")
+
+    if selected_environmental_chart:
+        chart_info = environmental_chart_options[selected_environmental_chart]
+        components.html(chart_info["code"], height=chart_info["height"], scrolling=False)
+    else:
+        st.info("Please select an environmental chart from the options above.")
