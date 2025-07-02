@@ -5,7 +5,6 @@ import numpy as np
 import plotly.express as px
 
 # --- Configuration ---
-# It's good practice to define constants or configurations at the top
 PAGE_TITLE = "SAKSHAM Baseline Survey Dashboard"
 PAGE_ICON = "🌍"
 LAYOUT = "wide"
@@ -13,41 +12,42 @@ INITIAL_SIDEBAR_STATE = "expanded"
 
 # --- Datawrapper Embed Definitions ---
 # Centralize all Datawrapper embed codes and their properties
+# We'll extract the min-height from the embed code and add a buffer for uniformity and full display.
 DATAWRAPPER_EMBEDS = {
     # Geographic Data Maps
     "geo_map_1_overview_distribution": {
         "code": """<div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>""",
-        "height": 620
+        "min_height_from_embed": 598 # Extracted from the div's style
     },
     "geo_map_2_additional_regional_view": {
         "code": """<div style="min-height:384px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>""",
-        "height": 410
+        "min_height_from_embed": 384
     },
     "geo_map_3_further_geographic_insight": {
         "code": """<div style="min-height:677px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>""",
-        "height": 700
+        "min_height_from_embed": 677
     },
     "geo_map_4_quick_geographic_detail": {
         "code": """<div style="min-height:114px" id="datawrapper-vis-fNesy"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/fNesy/embed.js" charset="utf-8" data-target="#datawrapper-vis-fNesy"></script><noscript><img src="https://datawrapper.dwcdn.net/fNesy/full.png" alt="" /></noscript></div>""",
-        "height": 140
+        "min_height_from_embed": 114
     },
     "geo_map_5_detailed_view": {
         "code": """<div style="min-height:558px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>""",
-        "height": 580
+        "min_height_from_embed": 558
     },
     # Demographic Data Charts
     "demographic_household_composition": {
         "code": """<div style="min-height:451px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>""",
-        "height": 480
+        "min_height_from_embed": 451
     },
     # Environmental Data Charts
     "env_source_of_irrigation": {
         "code": """<div style="min-height:258px" id="datawrapper-vis-dNfZU"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/dNfZU/embed.js" charset="utf-8" data-target="#datawrapper-vis-dNfZU"></script><noscript><img src="https://datawrapper.dwcdn.net/dNfZU/full.png" alt="" /></noscript></div>""",
-        "height": 290
+        "min_height_from_embed": 258
     },
     "env_avg_organic_cotton_production": {
         "code": """<div style="min-height:468px" id="datawrapper-vis-3Fewz"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/3Fewz/embed.js" charset="utf-8" data-target="#datawrapper-vis-3Fewz"></script><noscript><img src="https://datawrapper.dwcdn.net/3Fewz/full.png" alt="" /></noscript></div>""",
-        "height": 490
+        "min_height_from_embed": 468
     },
 }
 
@@ -64,13 +64,18 @@ def setup_page():
     st.write("This dashboard provides an overview of SAKSHAM's baseline survey parameters.")
 
 # --- Helper Function for Displaying Datawrapper Embeds ---
-def display_datawrapper_embed(key):
-    """Displays a Datawrapper embed based on its key from the DATAWRAPPER_EMBEDS dictionary."""
+def display_datawrapper_embed(key, buffer=30):
+    """
+    Displays a Datawrapper embed based on its key from the DATAWRAPPER_EMBEDS dictionary.
+    Calculates height based on min_height_from_embed plus a buffer.
+    """
     if key in DATAWRAPPER_EMBEDS:
         embed_info = DATAWRAPPER_EMBEDS[key]
-        components.html(embed_info["code"], height=embed_info["height"], scrolling=False)
+        # Calculate the display height: min_height from embed + buffer
+        display_height = embed_info["min_height_from_embed"] + buffer
+        components.html(embed_info["code"], height=display_height, scrolling=False)
     else:
-        st.error(f"Error: Datawrapper embed with key '{key}' not found.")
+        st.error(f"Error: Datawrapper embed with key '{key}' not found in configuration.")
 
 # --- Tab Content Functions ---
 
@@ -135,7 +140,7 @@ def render_economic_data_tab():
         # Example if you add one: "Certification Status": "economic_certification_status",
     }
 
-    if economic_chart_options_display:
+    if economic_chart_options_display: # Only show radio if there are options
         selected_economic_chart = st.radio(
             "Choose an economic chart to display:",
             list(economic_chart_options_display.keys()),
