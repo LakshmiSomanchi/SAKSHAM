@@ -59,7 +59,7 @@ tab_overview, tab_demographic, tab_economic, tab_social, tab_environmental = st.
 with tab_overview:
     st.header("Overview & Key Performance Indicators")
     st.markdown("This section provides a quick snapshot of the project's reach and key metrics.")
-    load_html_component("index_overview.html", default_height=250) # Height for KPI section
+    load_html_component("SAKSHAM.html", default_height=250) # Height for KPI section
 
 with tab_demographic:
     st.header("Demographic Data")
@@ -71,22 +71,22 @@ with tab_demographic:
     # Maharashtra Map (603px)
     # Plus titles, gaps, and padding (~150-200px)
     # 598 + 451 + 114 + 603 + 200 = ~1966. Setting to 2000 for safety.
-    load_html_component("section_demographic.html", default_height=2000) # Adjusted height significantly
+    load_html_component("page2.html", default_height=2000) # Adjusted height significantly
 
 with tab_economic:
     st.header("Economic Insights")
     st.markdown("Understand the economic aspects, including yield and farmer certification.")
-    load_html_component("section_economic.html", default_height=1100) # Keep this height if it was working well
+    load_html_component("page3.html", default_height=1100) # Keep this height if it was working well
 
 with tab_social:
     st.header("Social Indicators")
     st.markdown("View data related to social welfare, labor, and government scheme adoption.")
-    load_html_component("section_social.html", default_height=700) # Keep this height if it was working well
+    load_html_component("page4.html", default_height=700) # Keep this height if it was working well
 
 with tab_environmental:
     st.header("Environmental Data")
     st.markdown("Discover insights into environmental practices and resource management.")
-    load_html_component("section_environmental.html", default_height=1000) # Keep this height if it was working well
+    load_html_component("page5.html", default_height=1000) # Keep this height if it was working well
 
 # --- Streamlit Sidebar (Optional, continued from above for clarity) ---
 # ... (rest of your sidebar content)
