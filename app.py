@@ -85,7 +85,7 @@ with st.sidebar:
     st.write("[Project Documentation](https://example.com/docs)")
     st.markdown("---")
     st.subheader("Contact & Support")
-    st.write("For support, please email: `bkharoo@tns.org`, 'ksuneha@tns.org'")
+    st.write("For support, please email: `ksuneha@tns.org`")
     st.markdown("---")
     st.caption(f"Dashboard App Version 1.0")
     st.caption(f"Last App Deployment/Refresh: {datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
