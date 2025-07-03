@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overview & KPIs</title> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Overview</title> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0056b3; /* A shade of blue for accents */
-            --secondary-color: #f0f8ff; /* Light background for sections */
+            --primary-color: #0056b3;
+            --secondary-color: #f0f8ff;
             --text-color: #333;
             --light-text-color: #666;
             --border-color: #e0e0e0;
             --shadow-color: rgba(0, 0, 0, 0.08);
         }
-        body {
+        body { /* Keep body minimal or remove margin/padding if main Streamlit app handles it */
             font-family: 'Roboto', sans-serif;
             color: var(--text-color);
             line-height: 1.6;
@@ -46,9 +46,9 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
             text-align: center;
             flex: 1 1 calc(33% - 40px); /* Three cards per row */
-            min-width: 220px; /* Minimum width for KPI cards */
+            min-width: 220px;
             box-sizing: border-box;
-            border-bottom: 3px solid var(--primary-color); /* Accent line */
+            border-bottom: 3px solid var(--primary-color);
         }
 
         .kpi-card .value {
@@ -64,16 +64,11 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        /* Responsive adjustments for KPI cards */
         @media (max-width: 992px) {
-            .kpi-card {
-                flex: 1 1 calc(50% - 20px); /* Two KPI cards per row on medium screens */
-            }
+            .kpi-card { flex: 1 1 calc(50% - 20px); }
         }
         @media (max-width: 768px) {
-            .kpi-card {
-                flex: 1 1 100%; /* One KPI card per row on small screens */
-            }
+            .kpi-card { flex: 1 1 100%; }
         }
     </style>
 </head>
@@ -81,16 +76,16 @@
     <div class="section-container">
         <section class="kpi-section">
             <div class="kpi-card">
-                <div class="value">50+</div>
-                <div class="label">Total Locations</div>
+                <div class="value">108</div>
+                <div class="label">Total Villages</div>
             </div>
             <div class="kpi-card">
-                <div class="value">2,500+</div>
-                <div class="label">Households Covered</div>
+                <div class="value">3704</div>
+                <div class="label">Total Farmers</div>
             </div>
             <div class="kpi-card">
-                <div class="value">4,000+</div>
-                <div class="label">Farmers Engaged</div>
+                <div class="value">1684</div>
+                <div class="label">Newly Added Farmers</div>
             </div>
         </section>
     </div>
