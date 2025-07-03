@@ -29,7 +29,7 @@ st.set_page_config(
 )
 
 # --- Main Dashboard Header (rest of your header...) ---
-st.title("🌱 SAKSHAM Project: Comprehensive Dashboard")
+st.title("SAKSHAM Project: Comprehensive Dashboard")
 st.markdown("""
 Welcome to the interactive dashboard for the SAKSHAM Cotton Project.
 Navigate through the tabs below to explore different aspects of the project, including demographic data, economic insights, social indicators, and environmental practices.
@@ -39,11 +39,11 @@ st.markdown("---")
 
 # --- Streamlit Tabs for Navigation ---
 tab_overview, tab_demographic, tab_economic, tab_social, tab_environmental = st.tabs([
-    "🚀 Overview & KPIs",
-    "🧑‍🤝‍👩 Demographic Data",
-    "💰 Economic Insights",
-    "🤝 Social Indicators",
-    "🌳 Environmental Data"
+    "Overview & KPIs",
+    "Demographic Data",
+    "Economic Insights",
+    "Social Indicators",
+    "Environmental Data"
 ])
 
 # Content for each tab - MODIFIED FILE NAMES HERE
