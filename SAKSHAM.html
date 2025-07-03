@@ -1,201 +1,98 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Demographic Data</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
-    <style>
-
-        :root { /* Define CSS variables for consistent styling */
-
-            --primary-color: #0056b3;
-
-            --secondary-color: #f0f8ff;
-
-            --text-color: #333;
-
-            --light-text-color: #666;
-
-            --border-color: #e0e0e0;
-
-            --shadow-color: rgba(0, 0, 0, 0.08);
-
-        }
-
-        body {
-
-            font-family: 'Roboto', sans-serif;
-
-            color: var(--text-color);
-
-            line-height: 1.6;
-
-            margin: 0; padding: 0;
-
-            background-color: transparent;
-
-        }
-
-        .chart-section {
-
-            padding: 20px;
-
-            background-color: var(--secondary-color);
-
-            border-radius: 8px;
-
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-
-            margin-bottom: 20px;
-
-        }
-
-        .chart-section-title {
-
-            text-align: center;
-
-            color: var(--primary-color);
-
-            font-size: 2em;
-
-            margin-bottom: 30px;
-
-            font-weight: 600;
-
-            padding-bottom: 10px;
-
-            border-bottom: 1px solid var(--border-color);
-
-        }
-
-        .chart-grid {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 25px;
-
-            justify-content: center;
-
-        }
-
-        .chart-item {
-
-            flex: 1 1 calc(50% - 25px);
-
-            min-width: 320px;
-
-            background-color: #fff;
-
-            padding: 20px;
-
-            border-radius: 8px;
-
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-
-            box-sizing: border-box;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            justify-content: center;
-
-        }
-
-        .chart-item h2 {
-
-            text-align: center;
-
-            color: var(--text-color);
-
-            margin-top: 0;
-
-            margin-bottom: 20px;
-
-            font-size: 1.4em;
-
-            font-weight: 500;
-
-        }
-
-        .datawrapper-chart { width: 100%; }
-
-        @media (max-width: 768px) {
-
-            .chart-item { flex: 1 1 100%; padding: 15px; }
-
-            .chart-section-title { font-size: 1.8em; }
-
-        }
-
-    </style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview & KPIs</title> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0056b3; /* A shade of blue for accents */
+            --secondary-color: #f0f8ff; /* Light background for sections */
+            --text-color: #333;
+            --light-text-color: #666;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.08);
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0; padding: 0; /* Important: remove default body padding/margin here */
+            background-color: transparent; /* Allow Streamlit's background to show */
+        }
+        .section-container { /* Wrap main content of this HTML file */
+            padding: 20px;
+            background-color: #fff; /* White background for the card effect */
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .kpi-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 25px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-top: 20px; /* Space from top */
+        }
+
+        .kpi-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
+            text-align: center;
+            flex: 1 1 calc(33% - 40px); /* Three cards per row */
+            min-width: 220px; /* Minimum width for KPI cards */
+            box-sizing: border-box;
+            border-bottom: 3px solid var(--primary-color); /* Accent line */
+        }
+
+        .kpi-card .value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .kpi-card .label {
+            font-size: 1em;
+            color: var(--light-text-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        /* Responsive adjustments for KPI cards */
+        @media (max-width: 992px) {
+            .kpi-card {
+                flex: 1 1 calc(50% - 20px); /* Two KPI cards per row on medium screens */
+            }
+        }
+        @media (max-width: 768px) {
+            .kpi-card {
+                flex: 1 1 100%; /* One KPI card per row on small screens */
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-    <div class="chart-section">
-
-        <h2 class="chart-section-title">Geographical Reach & Demographics</h2>
-
-        <div class="chart-grid">
-
-            <div class="chart-item">
-
-                <h2>SAKSHAM Locations</h2>
-
-                <div class="datawrapper-chart">
-
-                    <div style="min-height:598px" id="datawrapper-vis-Oq2xV"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/Oq2xV/embed.js" charset="utf-8" data-target="#datawrapper-vis-Oq2xV"></script><noscript><img src="https://datawrapper.dwcdn.net/Oq2xV/full.png" alt="" /></noscript></div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="chart-item">
-
-                <h2>Household Composition</h2>
-
-                <div class="datawrapper-chart">
-
-                    <div style="min-height:451px" id="datawrapper-vis-7IEJR"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/7IEJR/embed.js" charset="utf-8" data-target="#datawrapper-vis-7IEJR"></script><noscript><img src="https://datawrapper.dwcdn.net/7IEJR/full.png" alt="" /></noscript></div>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="chart-item">
-
-                <h2>Gender Ratio</h2>
-
-                <div class="datawrapper-chart">
-
-                    <div style="min-height:114px" id="datawrapper-vis-fNesy"><script type="text/javascript" defer src="https://datawrapper.dwcdn.net/fNesy/embed.js" charset="utf-8" data-target="#datawrapper-vis-fNesy"></script><noscript><img src="https://datawrapper.dwcdn.net/fNesy/full.png" alt="" /></noscript></div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+    <div class="section-container">
+        <section class="kpi-section">
+            <div class="kpi-card">
+                <div class="value">50+</div>
+                <div class="label">Total Locations</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">2,500+</div>
+                <div class="label">Households Covered</div>
+            </div>
+            <div class="kpi-card">
+                <div class="value">4,000+</div>
+                <div class="label">Farmers Engaged</div>
+            </div>
+        </section>
+    </div>
 </body>
-
 </html>
